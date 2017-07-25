@@ -12,12 +12,14 @@ import android.widget.Toast;
  * Created by liuwei on 7/19/17.
  */
 
-public abstract class BaseActivity extends FragmentActivity {
+public abstract class ABSBaseActivity extends FragmentActivity {
     Handler mHandler = new Handler();
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        setContentView(getLayoutId());
+        initData();
     }
 
     @Override
@@ -67,7 +69,7 @@ public abstract class BaseActivity extends FragmentActivity {
         mHandler.post(new Runnable() {
             @Override
             public void run() {
-                Toast.makeText(BaseActivity.this, str, Toast.LENGTH_SHORT).show();
+                Toast.makeText(ABSBaseActivity.this, str, Toast.LENGTH_SHORT).show();
             }
         });
     }
