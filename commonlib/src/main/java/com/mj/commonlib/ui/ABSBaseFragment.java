@@ -14,6 +14,11 @@ import android.view.ViewGroup;
 
 public abstract class ABSBaseFragment extends Fragment {
     public Context mContext;
+    //Fragment的View加载完毕的标记
+    private boolean isViewCreated;
+
+    //Fragment对用户可见的标记
+    private boolean isUIVisible;
 
     @Override
     public void onAttach(Context context) {
@@ -40,7 +45,32 @@ public abstract class ABSBaseFragment extends Fragment {
     @Override
     public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        initData();
+        isViewCreated = true;
+        loadData();
+    }
+
+    private void loadData() {
+        if (isViewCreated && isUIVisible) {
+            initData();
+            //数据加载完毕,恢复标记,防止重复加载
+            isViewCreated = false;
+            isUIVisible = false;
+        }
+    }
+
+    /**
+     * @param isVisibleToUser ui是否对用户可见
+     */
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        //isVisibleToUser这个boolean值表示:该Fragment的UI 用户是否可见
+        if (isVisibleToUser) {
+            isUIVisible = true;
+            loadData();
+        } else {
+            isUIVisible = false;
+        }
     }
 
     /**
