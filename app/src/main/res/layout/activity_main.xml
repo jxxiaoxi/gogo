@@ -10,7 +10,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="10dp"
-        android:text="工厂模式案例"
+        android:text="设计模式案例"
         android:textSize="22dp" />
 
 </LinearLayout>
