@@ -169,6 +169,17 @@ public class LogUtils {
     /**
      * error log
      * @param tag tag
+     * @param msg msg
+     */
+    public static void e(String tag,boolean isLog, String msg) {
+        if (LOG_ENABLE || isLog) {
+            Log.e(tag, buildMsg(msg));
+        }
+    }
+
+    /**
+     * error log
+     * @param tag tag
      * @param msg log msg
      * @param e exception
      */

@@ -37,7 +37,7 @@ public class FactoryMethodFragment extends BaseFragment {
     }
 
     @Override
-    public int loadContentView() {
+    public int loadFragmentView() {
         return R.layout.fragment_factorymethod;
     }
 
@@ -75,7 +75,7 @@ public class FactoryMethodFragment extends BaseFragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         // TODO: inflate a fragment view
         View rootView = super.onCreateView(inflater, container, savedInstanceState);
-        unbinder = ButterKnife.bind(this, rootView);
+        mUnbinder = ButterKnife.bind(this, rootView);
         return rootView;
     }
 }

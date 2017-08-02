@@ -30,7 +30,7 @@ public class SingletonFragment extends BaseFragment {
     }
 
     @Override
-    public int loadContentView() {
+    public int loadFragmentView() {
         return R.layout.fragment_singleton;
     }
 

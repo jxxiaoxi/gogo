@@ -37,7 +37,7 @@ public abstract class ABSBaseFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(loadContentView(), container, false);
+        View view = inflater.inflate(loadFragmentView(), container, false);
         initView(view);
         return view;
     }
@@ -78,7 +78,7 @@ public abstract class ABSBaseFragment extends Fragment {
      *
      * @retur 返回Fragment显示的视图
      */
-    public abstract int loadContentView();
+    public abstract int loadFragmentView();
 
     /**
      * 初始化视图，在这个方法中可以操作每一个控件。
